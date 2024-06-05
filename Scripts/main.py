@@ -32,21 +32,11 @@ def clear_insert_text():
     session["insert_field"] = ""
 sidebar.button(label='Вставить', key='insert_button', on_click=clear_insert_text, use_container_width=True)
 
-# поиск элемента
-sidebar.subheader('🔎Поиск')
-value = sidebar.text_input(label='Введите число:', key='search_field', label_visibility='collapsed')
-if sidebar.button(label='Найти', key='search_button', use_container_width=True) and value:
-    node = session.tree.search(int(value))
-    if node:
-        st.success(f'Найден узел {value}')
-    else:
-        st.warning(f'Не найдено: {value}')
 
 # удаление чисел
-sidebar.subheader('🗑 Удаление')
+sidebar.subheader('Удаление')
 sidebar.text_input(
     label='Введите числа:',
-    placeholder='Пример: 16 5 4 23 1',
     key='values2delete',
     label_visibility='collapsed'
 )
